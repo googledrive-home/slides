@@ -19,7 +19,7 @@ header{display:flex;justify-content:space-between;gap:15px;align-items:end;margi
 .field{display:flex;flex-direction:column;gap:5px}.field label{font-size:9px;color:var(--muted)}select{padding:10px;border-radius:10px;background:#0c2033;color:#fff;border:1px solid var(--line)}
 .table{width:100%;border-collapse:collapse;font-size:10px}.table td,.table th{padding:8px;border-bottom:1px solid #ffffff0b;text-align:left}.table th{color:var(--muted)}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.player{padding:10px;border-radius:13px;background:linear-gradient(145deg,#17314b,#0b1927);border:1px solid #ffffff12}.player .ovr{font-size:34px;font-weight:1000;color:var(--gold)}.player b{display:block}.player small{color:var(--muted);font-size:9px}
-#hud{position:fixed;inset:0;z-index:10;pointer-events:none;display:none}.top{position:absolute;left:16px;right:16px;top:16px;display:flex;gap:8px;align-items:center;padding:9px 11px;background:#071321d9;border:1px solid #ffffff14;border-radius:16px}.grow{flex:1}.pill{padding:7px 9px;background:#0d2033;border-radius:10px;font-size:10px;font-weight:900}.score{position:absolute;top:78px;left:50%;transform:translateX(-50%);padding:8px 14px;border-radius:13px;background:#06101bd9;border:1px solid #ffffff14;font-weight:1000}.bottom{position:absolute;left:16px;bottom:16px;padding:9px 11px;background:#06101bd9;border:1px solid #ffffff14;border-radius:12px;color:var(--muted);font-size:10px}.bottom b{color:#fff}
+#hud{position:fixed;inset:0;z-index:10;pointer-events:none;display:none}.top{position:absolute;left:16px;right:16px;top:16px;display:flex;gap:8px;align-items:center;padding:9px 11px;background:#071321d9;border:1px solid #ffffff14;border-radius:16px}.grow{flex:1}.pill{padding:7px 9px;background:#0d2033;border-radius:10px;font-size:10px;font-weight:900}.score{position:absolute;top:78px;left:50%;transform:translateX(-50%);padding:8px 14px;border-radius:13px;background:#06101bd9;border:1px solid #ffffff14;font-weight:1000}.pause-overlay{position:fixed;inset:0;z-index:25;display:none;place-items:center;background:#020713b8;backdrop-filter:blur(7px);pointer-events:auto}.pause-overlay.show{display:grid}.pause-card{display:flex;flex-direction:column;align-items:center;gap:10px;padding:28px 34px;border-radius:20px;background:#071426f7;border:1px solid #ffffff20;box-shadow:0 25px 80px #000b;text-align:center}.pause-card strong{font-size:30px}.pause-card span{color:#8fa9c4;font-size:12px}.pause-card .btn{margin-top:6px}.bottom{position:absolute;left:16px;bottom:16px;padding:9px 11px;background:#06101bd9;border:1px solid #ffffff14;border-radius:12px;color:var(--muted);font-size:10px}.bottom b{color:#fff}
 .packOverlay{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:#02060bcc;backdrop-filter:blur(8px)}.packOverlay.show{display:grid}.packStage{width:min(520px,92vw);text-align:center}.packStage h2{font-size:26px;margin:0 0 8px}.pack{width:240px;height:340px;margin:16px auto;perspective:1100px}.packInner{width:100%;height:100%;position:relative;transition:transform .8s;transform-style:preserve-3d}.pack.reveal .packInner{transform:rotateY(180deg)}.packFace{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;border:2px solid #ffd35b;background:linear-gradient(145deg,#1d3551,#08111c);box-shadow:0 25px 100px #000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}.packBack{font-size:64px;font-weight:1000;color:#ffd35b}.packFront{transform:rotateY(180deg);background:radial-gradient(circle at 50% 22%,#264a68,#0a1521)}.packPhoto{width:140px;height:160px;border-radius:14px;object-fit:cover;background:#21384c;box-shadow:0 15px 45px #0008}.packFront b{font-size:24px;margin-top:10px}.packFront small{color:#c2d3df}.spark{position:absolute;width:8px;height:8px;border-radius:50%;background:#ffd35b;animation:spark 1.2s infinite ease-in-out}.s1{left:22%;top:20%}.s2{right:20%;top:31%;animation-delay:.2s}.s3{left:18%;bottom:22%;animation-delay:.4s}.s4{right:22%;bottom:17%;animation-delay:.6s}@keyframes spark{50%{transform:scale(2);opacity:.35}}.manageField{position:relative;min-height:360px;border-radius:16px;background:linear-gradient(90deg,#197243,#20834d);border:1px solid #ffffff22;overflow:hidden;padding:18px}.manageField:before,.manageField:after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:2px solid #ffffff66}.manageField:before{top:50%;width:85px;height:85px;border-radius:50%}.manageField:after{top:0;bottom:0;width:0;border-left:2px solid #ffffff66}.slot{position:absolute;transform:translate(-50%,-50%);width:110px;text-align:center}.slotDot{width:44px;height:44px;margin:auto;border-radius:50%;display:grid;place-items:center;background:#0b1826;border:2px solid #fff;color:#fff;font-weight:1000}.slot select{width:100%;margin-top:4px;padding:6px;font-size:9px}.managementGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:900px){.grid4,.teamgrid,.cards{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;align-items:flex-start}.grid2{grid-template-columns:1fr}}
 @media(max-width:560px){.grid4,.teamgrid,.cards{grid-template-columns:1fr}.card{padding:15px}h1{font-size:54px}}
 .hidden{display:none!important}
@@ -27,8 +27,8 @@ header{display:flex;justify-content:space-between;gap:15px;align-items:end;margi
 </head>
 <body>
 <div id="game"></div>
-<div id="hud"><div class="top"><b>FOOTBALL <span style="color:var(--cyan)">3D</span></b><div class="grow"></div><span class="pill" id="mode">MATCH</span><button class="btn" id="menuBtn" style="pointer-events:auto">☰ MENU</button></div><div class="score" id="score">NORTH CITY 0 — 0 RIVER UNITED · 00:00</div><div class="bottom"><b>WASD</b> Move · <b>SHIFT</b> Sprint · <b>SPACE</b> Pass · <b>X</b> Shoot · <b>C</b> Tackle · <b>TAB</b> Switch · <b>ESC</b> Menu · <span id="stamina">STAMINA 100%</span></div></div>
-<div id="packOverlay" class="packOverlay"><div class="packStage"><h2>ULTIMATE PACK</h2><p class="sub">Opening your pack…</p><div class="pack" id="packAnim"><div class="packInner"><div class="packFace"><div class="packBack">UT</div></div><div class="packFace packFront"><img id="packPhoto" class="packPhoto"><b id="packName">PLAYER</b><small id="packMeta">ST · 90 OVR</small></div></div><i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i><i class="spark s4"></i></div><button class="btn primary" id="closePack">Continue</button></div></div><div id="menu"><div class="card"><header><div><div style="font-size:10px;letter-spacing:.14em;color:var(--cyan);font-weight:1000">ORIGINAL 3D FOOTBALL GAME</div><h1>FOOTBALL <span>3D</span></h1></div><div class="sub">A browser football game with a playable 3D match, team selection, Quick Match, Career Mode, Ultimate Team and Training. Clubs and players are fictional.</div></header><div class="nav" id="nav"></div>
+<div id="hud"><div class="top"><b>FOOTBALL <span style="color:var(--cyan)">3D</span></b><div class="grow"></div><span class="pill" id="mode">MATCH</span><button class="btn" id="pauseBtn" style="pointer-events:auto">⏸ PAUSE</button><button class="btn" id="menuBtn" style="pointer-events:auto">☰ MENU</button></div><div class="score" id="score">NORTH CITY 0 — 0 RIVER UNITED · 00:00</div><div class="bottom"><b>WASD</b> Move · <b>SHIFT</b> Sprint · <b>E</b> Hold Dribble · release E to shoot · <b>SPACE</b> Pass · <b>X</b> Shoot · <b>C</b> Tackle · <b>TAB</b> Switch · <b>ESC</b> Menu · <span id="stamina">STAMINA 100%</span></div></div>
+<div id="pauseOverlay" class="pause-overlay"><div class="pause-card"><strong>PAUSED</strong><span>Game frozen</span><button class="btn" id="resumeBtn">▶ Resume</button></div></div><div id="packOverlay" class="packOverlay"><div class="packStage"><h2>ULTIMATE PACK</h2><p class="sub">Opening your pack…</p><div class="pack" id="packAnim"><div class="packInner"><div class="packFace"><div class="packBack">UT</div></div><div class="packFace packFront"><img id="packPhoto" class="packPhoto"><b id="packName">PLAYER</b><small id="packMeta">ST · 90 OVR</small></div></div><i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i><i class="spark s4"></i></div><button class="btn primary" id="closePack">Continue</button></div></div><div id="menu"><div class="card"><header><div><div style="font-size:10px;letter-spacing:.14em;color:var(--cyan);font-weight:1000">ORIGINAL 3D FOOTBALL GAME</div><h1>FOOTBALL <span>3D</span></h1></div><div class="sub">A browser football game with a playable 3D match, team selection, Quick Match, Career Mode, Ultimate Team and Training. Clubs and players are fictional.</div></header><div class="nav" id="nav"></div>
 <div id="home" class="page active"></div><div id="quick" class="page"></div><div id="career" class="page"></div><div id="ut" class="page"></div><div id="training" class="page"></div></div></div>
 
 <script type="module">
@@ -96,9 +96,10 @@ function renderTraining(){
  q('training').innerHTML='<div class="grid4"><div class="mode"><h3>🎯 Shooting Drill</h3><p>Play a timed 3D shooting session.</p><button class="btn primary" id="shoot">Start</button></div><div class="mode"><h3>🏃 Dribble Drill</h3><p>Weave through the 3D pitch and beat the clock.</p><button class="btn" id="dribble">Start</button></div><div class="mode"><h3>Best Score</h3><p style="font-size:28px;color:var(--cyan)">'+state.training.best+'</p></div><div class="mode"><h3>Controls</h3><p>WASD move · SHIFT sprint · SPACE pass · X shoot · C tackle.</p></div></div>';
  q('shoot').onclick=()=>startMatch('SHOOTING');q('dribble').onclick=()=>startMatch('DRIBBLE');
 }
-q('menuBtn').onclick=()=>endMatch();window.addEventListener('keydown',e=>{if(e.key==='Escape'){endMatch();return}keys.add(e.key.toLowerCase());if(state.match){if(e.key===' ')e.preventDefault();}});window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
+function toggleMatchPause(){if(!state.match)return;matchPaused=!matchPaused;q('pauseOverlay').classList.toggle('show',matchPaused);q('pauseBtn').textContent=matchPaused?'▶ RESUME':'⏸ PAUSE'}
+q('pauseBtn').onclick=toggleMatchPause;q('resumeBtn').onclick=()=>{if(matchPaused)toggleMatchPause()};q('menuBtn').onclick=()=>endMatch();window.addEventListener('keydown',e=>{if(e.key==='Escape'){endMatch();return}if(e.key.toLowerCase()==='p'&&state.match){e.preventDefault();toggleMatchPause();return}keys.add(e.key.toLowerCase());if(state.match){if(e.key===' ')e.preventDefault();}});window.addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(k==='e'&&state.match)releaseDribble();keys.delete(k)});
 
-let scene,camera,renderer,clock;let players=[],ball,controlled,matchClock=0,homeGoals=0,awayGoals=0,lastKick=0,goalFlash=0;
+let scene,camera,renderer,clock;let players=[],ball,controlled,matchClock=0,homeGoals=0,awayGoals=0,lastKick=0,goalFlash=0,matchPaused=false;
 function playerMesh(team,pos){
  const g=new THREE.Group();
  const jerseyMat=new THREE.MeshStandardMaterial({color:team.color,roughness:.75});
@@ -120,7 +121,7 @@ function playerMesh(team,pos){
  const ring=new THREE.Mesh(new THREE.TorusGeometry(.46,.018,6,24),new THREE.MeshBasicMaterial({color:team.color,transparent:true,opacity:.7}));
  ring.rotation.x=-Math.PI/2;ring.position.y=.03;g.add(ring);
  g.position.set(pos.x,0,pos.z);
- g.userData={team,home:team===state.home,base:new THREE.Vector3(pos.x,0,pos.z),vel:new THREE.Vector3(),facing:new THREE.Vector3(0,0,team===state.home?-1:1),stamina:100,kickCooldown:0};
+ g.userData={team,home:team===state.home,base:new THREE.Vector3(pos.x,0,pos.z),vel:new THREE.Vector3(),facing:new THREE.Vector3(0,0,team===state.home?-1:1),stamina:100,kickCooldown:0,dribbling:false};
  return g;
 }
 function lineStrip(points,material,closed=false){
@@ -184,13 +185,13 @@ function setup(){
 function resize(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)}
 function clearMatch(){players.forEach(p=>scene.remove(p));players=[];controlled=null}
 function startMatch(mode){
- state.match=true;q('menu').classList.add('hidden');q('hud').style.display='block';q('mode').textContent=mode;clearMatch();homeGoals=awayGoals=0;matchClock=state.minutes*60;lastKick=0;
+ state.match=true;matchPaused=false;q('pauseOverlay').classList.remove('show');q('pauseBtn').textContent='⏸ PAUSE';q('menu').classList.add('hidden');q('hud').style.display='block';q('mode').textContent=mode;clearMatch();homeGoals=awayGoals=0;matchClock=state.minutes*60;lastKick=0;
  const spots=[[-30,-10],[-13,-18],[4,-17],[25,-9],[-20,-3],[-4,2],[18,5],[-12,12],[14,16]];
  for(const pos of spots){const p=playerMesh(state.home,{x:pos[0],z:pos[1]});scene.add(p);players.push(p)}
  for(const pos of spots){const p=playerMesh(state.away,{x:-pos[0],z:-pos[1]});scene.add(p);players.push(p)}
  controlled=players[0];ball.position.set(0,.34,0);ball.userData={vx:0,vz:0,owner:null};goalFlash=0;updateScore()
 }
-function endMatch(){if(!state.match){state.page='home';q('menu').classList.remove('hidden');renderMenu();return}state.match=false;q('hud').style.display='none';q('menu').classList.remove('hidden');if(state.page==='career'){state.career.played++;if(homeGoals>awayGoals){state.career.w++;state.career.pts+=3}else if(homeGoals===awayGoals){state.career.d++;state.career.pts++}else state.career.l++}renderMenu()}
+function endMatch(){if(!state.match){state.page='home';q('menu').classList.remove('hidden');renderMenu();return}state.match=false;matchPaused=false;q('pauseOverlay').classList.remove('show');q('pauseBtn').textContent='⏸ PAUSE';q('hud').style.display='none';q('menu').classList.remove('hidden');if(state.page==='career'){state.career.played++;if(homeGoals>awayGoals){state.career.w++;state.career.pts+=3}else if(homeGoals===awayGoals){state.career.d++;state.career.pts++}else state.career.l++}renderMenu()}
 function updateScore(){q('score').textContent=state.home.name.toUpperCase()+' '+homeGoals+' — '+awayGoals+' '+state.away.name.toUpperCase()+' · '+formatTime(state.minutes*60-matchClock)}
 function formatTime(t){const m=Math.floor(t/60),s=Math.floor(t%60);return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function moveHuman(dt){
@@ -224,6 +225,7 @@ function aiUpdate(dt){
   if(p===controlled)continue;
   p.userData.kickCooldown=Math.max(0,(p.userData.kickCooldown||0)-dt);
   const ownBall=ball.userData.owner===p;
+  if(ball.userData.owner===controlled&&controlled.userData.dribbling&&p.userData.home!==controlled.userData.home&&p.position.distanceTo(controlled.position)<1.75){ball.userData.owner=p;controlled.userData.dribbling=false;p.userData.dribbling=false;}
   let dest=p.userData.base.clone();
   if(!ball.userData.owner){
     const toBall=ball.position.clone().sub(p.position);toBall.y=0;
@@ -277,6 +279,7 @@ function ballUpdate(dt){
    if(p.position.distanceTo(ball.position)<1.15){ball.userData.owner=p;break}
  }
 }
+function releaseDribble(){if(!state.match||!controlled||ball.userData.owner!==controlled||!controlled.userData.dribbling)return;const dir=controlled.userData.vel.clone();dir.y=0;if(dir.lengthSq()<0.05)dir.copy(controlled.userData.facing);dir.normalize();const speed=clamp(controlled.userData.vel.length()*1.15+9,14,19);ball.userData={vx:dir.x*speed,vz:dir.z*speed,owner:null};controlled.userData.dribbling=false}
 function doPass(){
  if(!state.match||!controlled||ball.userData.owner!==controlled)return;
  const mates=players.filter(p=>p!==controlled&&p.userData.home===controlled.userData.home);
@@ -302,7 +305,7 @@ function doTackle(){
  if(!state.match||!controlled)return;
  for(const p of players){
    if(p!==controlled&&p.userData.home!==controlled.userData.home&&p.position.distanceTo(controlled.position)<2.1){
-     if(ball.userData.owner===p)ball.userData.owner=controlled;
+     if(ball.userData.owner===p){ball.userData.owner=controlled;controlled.userData.dribbling=false;p.userData.dribbling=false;}
      p.position.add(new THREE.Vector3(0,0,controlled.userData.home?-1.1:1.1));
    }
  }
@@ -321,7 +324,7 @@ function updateMatch(dt){
 }
 function frame(){
  const dt=Math.min(.033,clock.getDelta());
- if(state.match)updateMatch(dt);else{camera.position.lerp(new THREE.Vector3(0,30,28),.03);camera.lookAt(0,0,0)}
+ if(state.match&&!matchPaused)updateMatch(dt);else{camera.position.lerp(new THREE.Vector3(0,30,28),.03);camera.lookAt(0,0,0)}
  renderer.render(scene,camera);
 }
 window.addEventListener('error',e=>{
