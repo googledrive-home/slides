@@ -15,12 +15,12 @@ header{display:flex;justify-content:space-between;gap:15px;align-items:end;margi
 .page{display:none}.page.active{display:block}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .mode,.section{padding:14px;border-radius:16px;background:#0a1928;border:1px solid #ffffff10}.mode{min-height:140px;display:flex;flex-direction:column;justify-content:space-between}.mode h3{margin:0 0 6px}.mode p{margin:0;color:var(--muted);font-size:10px;line-height:1.45}
 .btn{border:1px solid #ffffff16;background:#173249;color:#eef8ff;padding:10px 12px;border-radius:11px;font-weight:900}.primary{background:var(--cyan);color:#041118}.gold{background:var(--gold);color:#181200}
-.teamgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.team{padding:10px;background:#0b1b2b;border:1px solid #ffffff0e;border-radius:13px;text-align:left}.team.sel{outline:2px solid var(--cyan)}.crest{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:6px;font-weight:1000}.team b{display:block;font-size:11px}.team small{color:var(--muted);font-size:9px}
+.teamgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.team{padding:10px;background:#0b1b2b;border:1px solid #ffffff0e;border-radius:13px;text-align:left}.team.sel{outline:2px solid var(--cyan)}.crest{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;margin-bottom:6px;font-weight:1000;border:2px solid #fff;box-shadow:0 5px 18px #0008}.team b{display:block;font-size:11px}.team small{color:var(--muted);font-size:9px}
 .field{display:flex;flex-direction:column;gap:5px}.field label{font-size:9px;color:var(--muted)}select{padding:10px;border-radius:10px;background:#0c2033;color:#fff;border:1px solid var(--line)}
 .table{width:100%;border-collapse:collapse;font-size:10px}.table td,.table th{padding:8px;border-bottom:1px solid #ffffff0b;text-align:left}.table th{color:var(--muted)}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.player{padding:10px;border-radius:13px;background:linear-gradient(145deg,#17314b,#0b1927);border:1px solid #ffffff12}.player .ovr{font-size:34px;font-weight:1000;color:var(--gold)}.player b{display:block}.player small{color:var(--muted);font-size:9px}
 #hud{position:fixed;inset:0;z-index:10;pointer-events:none;display:none}.top{position:absolute;left:16px;right:16px;top:16px;display:flex;gap:8px;align-items:center;padding:9px 11px;background:#071321d9;border:1px solid #ffffff14;border-radius:16px}.grow{flex:1}.pill{padding:7px 9px;background:#0d2033;border-radius:10px;font-size:10px;font-weight:900}.score{position:absolute;top:78px;left:50%;transform:translateX(-50%);padding:8px 14px;border-radius:13px;background:#06101bd9;border:1px solid #ffffff14;font-weight:1000}.bottom{position:absolute;left:16px;bottom:16px;padding:9px 11px;background:#06101bd9;border:1px solid #ffffff14;border-radius:12px;color:var(--muted);font-size:10px}.bottom b{color:#fff}
-@media(max-width:900px){.grid4,.teamgrid,.cards{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;align-items:flex-start}.grid2{grid-template-columns:1fr}}
+.packOverlay{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:#02060bcc;backdrop-filter:blur(8px)}.packOverlay.show{display:grid}.packStage{width:min(520px,92vw);text-align:center}.packStage h2{font-size:26px;margin:0 0 8px}.pack{width:240px;height:340px;margin:16px auto;perspective:1100px}.packInner{width:100%;height:100%;position:relative;transition:transform .8s;transform-style:preserve-3d}.pack.reveal .packInner{transform:rotateY(180deg)}.packFace{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;border:2px solid #ffd35b;background:linear-gradient(145deg,#1d3551,#08111c);box-shadow:0 25px 100px #000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}.packBack{font-size:64px;font-weight:1000;color:#ffd35b}.packFront{transform:rotateY(180deg);background:radial-gradient(circle at 50% 22%,#264a68,#0a1521)}.packPhoto{width:140px;height:160px;border-radius:14px;object-fit:cover;background:#21384c;box-shadow:0 15px 45px #0008}.packFront b{font-size:24px;margin-top:10px}.packFront small{color:#c2d3df}.spark{position:absolute;width:8px;height:8px;border-radius:50%;background:#ffd35b;animation:spark 1.2s infinite ease-in-out}.s1{left:22%;top:20%}.s2{right:20%;top:31%;animation-delay:.2s}.s3{left:18%;bottom:22%;animation-delay:.4s}.s4{right:22%;bottom:17%;animation-delay:.6s}@keyframes spark{50%{transform:scale(2);opacity:.35}}.manageField{position:relative;min-height:360px;border-radius:16px;background:linear-gradient(90deg,#197243,#20834d);border:1px solid #ffffff22;overflow:hidden;padding:18px}.manageField:before,.manageField:after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:2px solid #ffffff66}.manageField:before{top:50%;width:85px;height:85px;border-radius:50%}.manageField:after{top:0;bottom:0;width:0;border-left:2px solid #ffffff66}.slot{position:absolute;transform:translate(-50%,-50%);width:110px;text-align:center}.slotDot{width:44px;height:44px;margin:auto;border-radius:50%;display:grid;place-items:center;background:#0b1826;border:2px solid #fff;color:#fff;font-weight:1000}.slot select{width:100%;margin-top:4px;padding:6px;font-size:9px}.managementGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:900px){.grid4,.teamgrid,.cards{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;align-items:flex-start}.grid2{grid-template-columns:1fr}}
 @media(max-width:560px){.grid4,.teamgrid,.cards{grid-template-columns:1fr}.card{padding:15px}h1{font-size:54px}}
 .hidden{display:none!important}
 </style>
@@ -28,36 +28,39 @@ header{display:flex;justify-content:space-between;gap:15px;align-items:end;margi
 <body>
 <div id="game"></div>
 <div id="hud"><div class="top"><b>FOOTBALL <span style="color:var(--cyan)">3D</span></b><div class="grow"></div><span class="pill" id="mode">MATCH</span><button class="btn" id="menuBtn" style="pointer-events:auto">☰ MENU</button></div><div class="score" id="score">NORTH CITY 0 — 0 RIVER UNITED · 00:00</div><div class="bottom"><b>WASD</b> Move · <b>SHIFT</b> Sprint · <b>SPACE</b> Pass · <b>X</b> Shoot · <b>C</b> Tackle · <b>ESC</b> Menu</div></div>
-<div id="menu"><div class="card"><header><div><div style="font-size:10px;letter-spacing:.14em;color:var(--cyan);font-weight:1000">ORIGINAL 3D FOOTBALL GAME</div><h1>FOOTBALL <span>3D</span></h1></div><div class="sub">A browser football game with a playable 3D match, team selection, Quick Match, Career Mode, Ultimate Team and Training. Clubs and players are fictional.</div></header><div class="nav" id="nav"></div>
+<div id="packOverlay" class="packOverlay"><div class="packStage"><h2>ULTIMATE PACK</h2><p class="sub">Opening your pack…</p><div class="pack" id="packAnim"><div class="packInner"><div class="packFace"><div class="packBack">UT</div></div><div class="packFace packFront"><img id="packPhoto" class="packPhoto"><b id="packName">PLAYER</b><small id="packMeta">ST · 90 OVR</small></div></div><i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i><i class="spark s4"></i></div><button class="btn primary" id="closePack">Continue</button></div></div><div id="menu"><div class="card"><header><div><div style="font-size:10px;letter-spacing:.14em;color:var(--cyan);font-weight:1000">ORIGINAL 3D FOOTBALL GAME</div><h1>FOOTBALL <span>3D</span></h1></div><div class="sub">A browser football game with a playable 3D match, team selection, Quick Match, Career Mode, Ultimate Team and Training. Clubs and players are fictional.</div></header><div class="nav" id="nav"></div>
 <div id="home" class="page active"></div><div id="quick" class="page"></div><div id="career" class="page"></div><div id="ut" class="page"></div><div id="training" class="page"></div></div></div>
 
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
 
 const TEAMS=[
-{name:'North City',abbr:'NCT',ovr:88,atk:90,mid:87,def:86,color:0x35b8ff},
-{name:'River United',abbr:'RIV',ovr:86,atk:84,mid:89,def:85,color:0xf25d67},
-{name:'Metro FC',abbr:'MET',ovr:84,atk:86,mid:82,def:84,color:0xffd35b},
-{name:'Harbor Athletic',abbr:'HAR',ovr:82,atk:81,mid:84,def:83,color:0x51dc8d},
-{name:'Capital 04',abbr:'CAP',ovr:81,atk:83,mid:79,def:82,color:0x9b6cff},
-{name:'East Borough',abbr:'EAS',ovr:79,atk:80,mid:81,def:77,color:0xff7b48},
-{name:'West Rovers',abbr:'WES',ovr:77,atk:79,mid:77,def:75,color:0x69d8ff},
-{name:'Kingsport',abbr:'KIN',ovr:76,atk:74,mid:78,def:76,color:0xf07bd4}
+{name:'Real Madrid',abbr:'RMA',ovr:91,atk:93,mid:90,def:88,color:0xf5f5f5,badge:'R'},
+{name:'Manchester City',abbr:'MCI',ovr:90,atk:92,mid:93,def:87,color:0x6cadde,badge:'M'},
+{name:'Barcelona',abbr:'BAR',ovr:88,atk:91,mid:89,def:83,color:0xa855f7,badge:'B'},
+{name:'Arsenal',abbr:'ARS',ovr:87,atk:88,mid:86,def:85,color:0xf04b5f,badge:'A'},
+{name:'Liverpool',abbr:'LIV',ovr:87,atk:89,mid:86,def:84,color:0xd92f3f,badge:'L'},
+{name:'Bayern Munich',abbr:'FCB',ovr:89,atk:91,mid:88,def:86,color:0xc91d2f,badge:'B'},
+{name:'Paris Saint-Germain',abbr:'PSG',ovr:88,atk:90,mid:88,def:82,color:0x1d6fd8,badge:'P'},
+{name:'Inter Milan',abbr:'INT',ovr:86,atk:87,mid:85,def:86,color:0x1685d1,badge:'I'}
 ];
 const PLAYERS=[
-{name:'Alex Vale',pos:'ST',ovr:91,pace:92,club:'North City',rarity:'ICON'},
-{name:'Milo Hart',pos:'CAM',ovr:89,pace:88,club:'River United',rarity:'ELITE'},
-{name:'Jae Morgan',pos:'RW',ovr:87,pace:94,club:'Metro FC',rarity:'ELITE'},
-{name:'Kai Mercer',pos:'CM',ovr:86,pace:82,club:'Harbor Athletic',rarity:'ELITE'},
-{name:'Leo Cruz',pos:'CB',ovr:84,pace:77,club:'Capital 04',rarity:'RARE'},
-{name:'Noah Finn',pos:'GK',ovr:84,pace:62,club:'East Borough',rarity:'RARE'},
-{name:'Rory Hale',pos:'LB',ovr:82,pace:85,club:'West Rovers',rarity:'RARE'},
-{name:'Sam Doyle',pos:'CDM',ovr:81,pace:72,club:'Kingsport',rarity:'RARE'}
+{name:'Kylian Mbappé',pos:'ST',ovr:92,pace:97,shoot:93,club:'Real Madrid',rarity:'ICON',photo:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kylian%20Mbapp%C3%A9%20en%20visite%20%C3%A0%20Caen.jpg'},
+{name:'Vinícius Júnior',pos:'LW',ovr:91,pace:96,shoot:89,club:'Real Madrid',rarity:'ICON',photo:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Vinicius%20Junior%20%282025%29.jpg'},
+{name:'Jude Bellingham',pos:'CM',ovr:90,pace:86,shoot:88,club:'Real Madrid',rarity:'ELITE',photo:'https://commons.wikimedia.org/wiki/Special:Redirect/file/MexicovsEngland2026.png'},
+{name:'Erling Haaland',pos:'ST',ovr:91,pace:89,shoot:96,club:'Manchester City',rarity:'ICON',photo:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Erling%20Haaland%20Morocco%20v%20Norway%207%20June%202026-164.jpg'},
+{name:'Lamine Yamal',pos:'RW',ovr:90,pace:94,shoot:85,club:'Barcelona',rarity:'ELITE'},
+{name:'Bukayo Saka',pos:'RW',ovr:88,pace:91,shoot:84,club:'Arsenal',rarity:'ELITE'},
+{name:'Mohamed Salah',pos:'RW',ovr:89,pace:91,shoot:90,club:'Trabzonspor',rarity:'ELITE',photo:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mohamed%20Salah%2006042025%20%281%29.jpg'},
+{name:'Jamal Musiala',pos:'CAM',ovr:88,pace:90,shoot:82,club:'Bayern Munich',rarity:'ELITE'},
+{name:'Rodri',pos:'CDM',ovr:89,pace:75,shoot:80,club:'Manchester City',rarity:'ELITE'},
+{name:'Lautaro Martínez',pos:'ST',ovr:88,pace:84,shoot:91,club:'Inter Milan',rarity:'ELITE'},
+{name:'Achraf Hakimi',pos:'RB',ovr:87,pace:95,shoot:70,club:'Paris Saint-Germain',rarity:'ELITE'}
 ];
-const state={page:'home',home:TEAMS[0],away:TEAMS[1],difficulty:'medium',minutes:3,career:{club:TEAMS[0],season:1,played:0,w:0,d:0,l:0,pts:0,budget:12000000},ut:{coins:15000,squad:PLAYERS.slice(0,5),collection:PLAYERS.slice()},training:{best:0},match:false};
+const state={page:'home',home:TEAMS[0],away:TEAMS[1],difficulty:'medium',minutes:3,career:{club:TEAMS[0],season:1,played:0,w:0,d:0,l:0,pts:0,budget:12000000},ut:{coins:15000,squad:PLAYERS.slice(0,8),collection:PLAYERS.slice(),formation:'4-3-3',lineup:PLAYERS.slice(0,11)},training:{best:0},match:false};
 const q=id=>document.getElementById(id);const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));const keys=new Set();
 
-function teamButtons(sel){return TEAMS.map((t,i)=>'<button class="team '+(t===sel?'sel':'')+'" data-i="'+i+'"><div class="crest" style="background:#'+t.color.toString(16).padStart(6,'0')+'">'+t.abbr[0]+'</div><b>'+t.name+'</b><small>OVR '+t.ovr+' · ATK '+t.atk+' · MID '+t.mid+' · DEF '+t.def+'</small></button>').join('')}
+function teamButtons(sel){return TEAMS.map((t,i)=>'<button class="team '+(t===sel?'sel':'')+'" data-i="'+i+'"><div class="crest" style="background:#'+t.color.toString(16).padStart(6,'0')+'">'+t.badge+'</div><b>'+t.name+'</b><small>OVR '+t.ovr+' · ATK '+t.atk+' · MID '+t.mid+' · DEF '+t.def+'</small></button>').join('')}
 function navRender(){q('nav').innerHTML=[['home','Home'],['quick','Quick Match'],['career','Career'],['ut','Ultimate Team'],['training','Training']].map(x=>'<button class="'+(state.page===x[0]?'active':'')+'" data-p="'+x[0]+'">'+x[1]+'</button>').join('');q('nav').querySelectorAll('button').forEach(b=>b.onclick=()=>{state.page=b.dataset.p;renderMenu()})}
 function renderMenu(){
  navRender();document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));q(state.page).classList.add('active');
@@ -75,10 +78,19 @@ function renderCareer(){
  bindTeam('ct',t=>{c.club=t;renderMenu()});q('careerPlay').onclick=()=>{state.home=c.club;state.away=TEAMS[(TEAMS.indexOf(c.club)+1)%TEAMS.length];startMatch('CAREER')};q('careerSim').onclick=()=>simulateCareer();
 }
 function simulateCareer(){const c=state.career,r=Math.random();c.played++;if(r>.55){c.w++;c.pts+=3;c.budget+=400000}else if(r>.32){c.d++;c.pts++;c.budget+=150000}else{c.l++;c.budget=Math.max(0,c.budget-100000)}renderMenu()}
-function card(p){return '<div class="player"><div class="ovr">'+p.ovr+'</div><b>'+p.name+'</b><small>'+p.pos+' · '+p.club+' · '+p.rarity+'</small></div>'}
+function card(p){return '<div class="player">'+(p.photo?'<img src="'+p.photo+'" style="width:100%;height:105px;object-fit:cover;border-radius:10px;background:#152b3d" loading="lazy" onerror="this.style.display=\'none\'">':'<div style="height:105px;border-radius:10px;background:linear-gradient(145deg,#2a4660,#111c28);display:grid;place-items:center;font-size:30px;font-weight:1000">'+p.name.split(' ').map(x=>x[0]).join('').slice(0,2)+'</div>')+'<div class="ovr">'+p.ovr+'</div><b>'+p.name+'</b><small>'+p.pos+' · '+p.club+' · '+p.rarity+'</small></div>'}
+function openPackAnimation(){
+ const overlay=q('packOverlay'),anim=q('packAnim');const p=PLAYERS[Math.floor(Math.random()*PLAYERS.length)];
+ q('packPhoto').src=p.photo||'';q('packName').textContent=p.name;q('packMeta').textContent=p.pos+' · '+p.ovr+' OVR · '+p.club;
+ overlay.classList.add('show');anim.classList.remove('reveal');
+ setTimeout(()=>anim.classList.add('reveal'),850);
+ q('closePack').onclick=()=>{overlay.classList.remove('show');if(state.ut.coins>=1500){state.ut.coins-=1500;state.ut.collection.unshift(p);if(state.ut.squad.length<11)state.ut.squad.push(p);renderMenu()}};
+}
 function renderUT(){
- q('ut').innerHTML='<div class="section"><h2>Ultimate Team</h2><p class="sub">Coins: <b style="color:var(--gold)">'+state.ut.coins.toLocaleString()+'</b></p><button class="btn gold" id="pack">Open Pack · 1,500</button></div><div class="section"><h2>Starting Squad</h2><div class="cards">'+state.ut.squad.map(card).join('')+'</div></div><div class="section"><h2>Collection</h2><div class="cards">'+state.ut.collection.map(card).join('')+'</div></div>';
- q('pack').onclick=()=>{if(state.ut.coins<1500)return;state.ut.coins-=1500;const p=PLAYERS[Math.floor(Math.random()*PLAYERS.length)];state.ut.collection.unshift(p);if(state.ut.squad.length<6)state.ut.squad.push(p);renderMenu()}
+ const positions=state.ut.formation==='4-2-3-1'?['GK','LB','CB','CB','RB','CDM','CDM','LW','CAM','RW','ST']:state.ut.formation==='3-5-2'?['GK','CB','CB','CB','LM','CM','CDM','CM','RM','ST','ST']:['GK','LB','CB','CB','RB','CM','CM','LW','RW','ST','ST'];
+ q('ut').innerHTML='<div class="section"><h2>Ultimate Team</h2><p class="sub">Coins: <b style="color:var(--gold)">'+state.ut.coins.toLocaleString()+'</b></p><button class="btn gold" id="pack">Open Premium Pack · 1,500</button></div><div class="section"><h2>Team Management</h2><div class="managementGrid"><div class="manageField">'+positions.map((pos,i)=>'<div class="slot" style="left:'+([50,24,39,61,76,34,66,22,50,78,50][i])+'%;top:'+([88,72,60,60,72,48,48,31,27,31,14][i])+'%"><div class="slotDot">'+pos+'</div><select data-slot="'+i+'">'+state.ut.collection.map((p,j)=>'<option value="'+j+'" '+(state.ut.lineup[i]===p?'selected':'')+'>'+p.name+' · '+p.ovr+'</option>').join('')+'</select></div>').join('')+'</div><div><div class="field"><label>FORMATION</label><select id="formation"><option>4-3-3</option><option>4-2-3-1</option><option>3-5-2</option></select></div><div style="margin-top:10px"><h3>Squad</h3><div class="cards">'+state.ut.squad.map(card).join('')+'</div></div></div></div></div><div class="section"><h2>Collection</h2><div class="cards">'+state.ut.collection.map(card).join('')+'</div></div>';
+ q('formation').value=state.ut.formation;q('formation').onchange=e=>{state.ut.formation=e.target.value;renderMenu()};q('pack').onclick=openPackAnimation;
+ q('ut').querySelectorAll('select[data-slot]').forEach(sel=>sel.onchange=e=>{state.ut.lineup[+sel.dataset.slot]=state.ut.collection[+e.target.value]});
 }
 function renderTraining(){
  q('training').innerHTML='<div class="grid4"><div class="mode"><h3>🎯 Shooting Drill</h3><p>Play a timed 3D shooting session.</p><button class="btn primary" id="shoot">Start</button></div><div class="mode"><h3>🏃 Dribble Drill</h3><p>Weave through the 3D pitch and beat the clock.</p><button class="btn" id="dribble">Start</button></div><div class="mode"><h3>Best Score</h3><p style="font-size:28px;color:var(--cyan)">'+state.training.best+'</p></div><div class="mode"><h3>Controls</h3><p>WASD move · SHIFT sprint · SPACE pass · X shoot · C tackle.</p></div></div>';
@@ -174,8 +186,8 @@ function clearMatch(){players.forEach(p=>scene.remove(p));players=[];controlled=
 function startMatch(mode){
  state.match=true;q('menu').classList.add('hidden');q('hud').style.display='block';q('mode').textContent=mode;clearMatch();homeGoals=awayGoals=0;matchClock=state.minutes*60;lastKick=0;
  const spots=[[-22,-8],[-9,-13],[6,-12],[20,-7],[-15,-2],[-2,1],[14,3],[-9,9],[10,11]];
- for(const pos of spots){const p=playerMesh(state.home,{x:pos[0],z:pos[1]});players.push(p)}
- for(const pos of spots){const p=playerMesh(state.away,{x:-pos[0],z:-pos[1]});players.push(p)}
+ for(const pos of spots){const p=playerMesh(state.home,{x:pos[0],z:pos[1]});scene.add(p);players.push(p)}
+ for(const pos of spots){const p=playerMesh(state.away,{x:-pos[0],z:-pos[1]});scene.add(p);players.push(p)}
  controlled=players[0];ball.position.set(0,.34,0);ball.userData={vx:0,vz:0};updateScore()
 }
 function endMatch(){if(!state.match){state.page='home';q('menu').classList.remove('hidden');renderMenu();return}state.match=false;q('hud').style.display='none';q('menu').classList.remove('hidden');if(state.page==='career'){state.career.played++;if(homeGoals>awayGoals){state.career.w++;state.career.pts+=3}else if(homeGoals===awayGoals){state.career.d++;state.career.pts++}else state.career.l++}renderMenu()}
