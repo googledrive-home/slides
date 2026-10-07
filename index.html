@@ -217,7 +217,9 @@ function moveHuman(dt){
  }
  if(ball.userData.owner===controlled){
    const f=controlled.userData.facing;
-   ball.position.set(controlled.position.x+f.x*1.0,.34,controlled.position.z+f.z*1.0);
+   if(keys.has('e')){controlled.userData.dribbling=true;ball.position.set(controlled.position.x+f.x*.68,.34,controlled.position.z+f.z*.68)}
+   else if(controlled.userData.dribbling){releaseDribble()}
+   else ball.position.set(controlled.position.x+f.x*1.0,.34,controlled.position.z+f.z*1.0);
  }
 }
 function aiUpdate(dt){
