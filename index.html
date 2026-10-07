@@ -27,7 +27,7 @@ header{display:flex;justify-content:space-between;gap:15px;align-items:end;margi
 </head>
 <body>
 <div id="game"></div>
-<div id="hud"><div class="top"><b>FOOTBALL <span style="color:var(--cyan)">3D</span></b><div class="grow"></div><span class="pill" id="mode">MATCH</span><button class="btn" id="pauseBtn" style="pointer-events:auto">⏸ PAUSE</button><button class="btn" id="menuBtn" style="pointer-events:auto">☰ MENU</button></div><div class="score" id="score">NORTH CITY 0 — 0 RIVER UNITED · 00:00</div><div class="bottom"><b>WASD</b> Move · <b>SHIFT</b> Sprint · <b>E</b> Hold Dribble · release E to shoot · <b>SPACE</b> Pass · <b>X</b> Shoot · <b>C</b> Tackle · <b>TAB</b> Switch · <b>ESC</b> Menu · <span id="stamina">STAMINA 100%</span></div></div>
+<div id="hud"><div class="top"><b>FOOTBALL <span style="color:var(--cyan)">3D</span></b><div class="grow"></div><span class="pill" id="mode">MATCH</span><button class="btn" id="pauseBtn" style="pointer-events:auto">⏸ PAUSE</button><button class="btn" id="menuBtn" style="pointer-events:auto">☰ MENU</button></div><div class="score" id="score">NORTH CITY 0 — 0 RIVER UNITED · 00:00</div><div class="bottom"><b>WASD</b> Move · <b>SHIFT</b> Sprint · <b>SPACE</b> Pass · <b>X</b> Shoot · <b>C</b> Tackle · <b>TAB</b> Switch · <b>ESC</b> Menu · <span id="stamina">STAMINA 100%</span></div></div>
 <div id="pauseOverlay" class="pause-overlay"><div class="pause-card"><strong>PAUSED</strong><span>Game frozen</span><button class="btn" id="resumeBtn">▶ Resume</button></div></div><div id="packOverlay" class="packOverlay"><div class="packStage"><h2>ULTIMATE PACK</h2><p class="sub">Opening your pack…</p><div class="pack" id="packAnim"><div class="packInner"><div class="packFace"><div class="packBack">UT</div></div><div class="packFace packFront"><img id="packPhoto" class="packPhoto"><b id="packName">PLAYER</b><small id="packMeta">ST · 90 OVR</small></div></div><i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i><i class="spark s4"></i></div><button class="btn primary" id="closePack">Continue</button></div></div><div id="menu"><div class="card"><header><div><div style="font-size:10px;letter-spacing:.14em;color:var(--cyan);font-weight:1000">ORIGINAL 3D FOOTBALL GAME</div><h1>FOOTBALL <span>3D</span></h1></div><div class="sub">A browser football game with a playable 3D match, team selection, Quick Match, Career Mode, Ultimate Team and Training. Clubs and players are fictional.</div></header><div class="nav" id="nav"></div>
 <div id="home" class="page active"></div><div id="quick" class="page"></div><div id="career" class="page"></div><div id="ut" class="page"></div><div id="training" class="page"></div></div></div>
 
@@ -121,7 +121,7 @@ function playerMesh(team,pos){
  const ring=new THREE.Mesh(new THREE.TorusGeometry(.46,.018,6,24),new THREE.MeshBasicMaterial({color:team.color,transparent:true,opacity:.7}));
  ring.rotation.x=-Math.PI/2;ring.position.y=.03;g.add(ring);
  g.position.set(pos.x,0,pos.z);
- g.userData={team,home:team===state.home,base:new THREE.Vector3(pos.x,0,pos.z),vel:new THREE.Vector3(),facing:new THREE.Vector3(0,0,team===state.home?-1:1),stamina:100,kickCooldown:0,dribbling:false};
+ g.userData={team,home:team===state.home,base:new THREE.Vector3(pos.x,0,pos.z),vel:new THREE.Vector3(),facing:new THREE.Vector3(0,0,team===state.home?-1:1),stamina:100,kickCooldown:0};
  return g;
 }
 function lineStrip(points,material,closed=false){
@@ -217,9 +217,7 @@ function moveHuman(dt){
  }
  if(ball.userData.owner===controlled){
    const f=controlled.userData.facing;
-   if(keys.has('e')){controlled.userData.dribbling=true;ball.position.set(controlled.position.x+f.x*.68,.34,controlled.position.z+f.z*.68)}
-   else if(controlled.userData.dribbling){releaseDribble()}
-   else ball.position.set(controlled.position.x+f.x*1.0,.34,controlled.position.z+f.z*1.0);
+   ball.position.set(controlled.position.x+f.x*1.0,.34,controlled.position.z+f.z*1.0);
  }
 }
 function aiUpdate(dt){
@@ -227,7 +225,6 @@ function aiUpdate(dt){
   if(p===controlled)continue;
   p.userData.kickCooldown=Math.max(0,(p.userData.kickCooldown||0)-dt);
   const ownBall=ball.userData.owner===p;
-  if(ball.userData.owner===controlled&&controlled.userData.dribbling&&p.userData.home!==controlled.userData.home&&p.position.distanceTo(controlled.position)<1.75){ball.userData.owner=p;controlled.userData.dribbling=false;p.userData.dribbling=false;}
   let dest=p.userData.base.clone();
   if(!ball.userData.owner){
     const toBall=ball.position.clone().sub(p.position);toBall.y=0;
@@ -281,7 +278,6 @@ function ballUpdate(dt){
    if(p.position.distanceTo(ball.position)<1.15){ball.userData.owner=p;break}
  }
 }
-function releaseDribble(){if(!state.match||!controlled||ball.userData.owner!==controlled||!controlled.userData.dribbling)return;const dir=controlled.userData.vel.clone();dir.y=0;if(dir.lengthSq()<0.05)dir.copy(controlled.userData.facing);dir.normalize();const speed=clamp(controlled.userData.vel.length()*1.15+9,14,19);ball.userData={vx:dir.x*speed,vz:dir.z*speed,owner:null};controlled.userData.dribbling=false}
 function doPass(){
  if(!state.match||!controlled||ball.userData.owner!==controlled)return;
  const mates=players.filter(p=>p!==controlled&&p.userData.home===controlled.userData.home);
@@ -307,7 +303,7 @@ function doTackle(){
  if(!state.match||!controlled)return;
  for(const p of players){
    if(p!==controlled&&p.userData.home!==controlled.userData.home&&p.position.distanceTo(controlled.position)<2.1){
-     if(ball.userData.owner===p){ball.userData.owner=controlled;controlled.userData.dribbling=false;p.userData.dribbling=false;}
+     if(ball.userData.owner===p)ball.userData.owner=controlled;
      p.position.add(new THREE.Vector3(0,0,controlled.userData.home?-1.1:1.1));
    }
  }
